@@ -138,7 +138,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         put_item(self.text, self.dynamodb)
         result = get_items(self.dynamodb)
         print (result)
-        self.assertRaises(Exception, result[0]['text']))
+        self.assertRaises(Exception, result[0]['text'])
         print ('End: test_list_todo_error')
 
     def test_update_todo(self):
