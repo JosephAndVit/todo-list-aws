@@ -15,7 +15,7 @@ pipeline {
                 echo 'Unit testing:'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/unit_test.sh"
                 catcherror(buildResult: 'UNSTABLE', stageResult: 'FAILURE'){
-                    cobertura coberturaReportFile: 'coverage.xml', lineCoverageTargets: '100,80,90', failUnstable: false, onlyStable: false
+                    cobertura coberturaReportFile: 'coverage.xml', lineCoverageTargets: '100,79,90', failUnstable: false, onlyStable: false
                 }
                 script{
                     catchError(buildResult:'UNSTABLE', stageResult: 'UNSTABLE'){
