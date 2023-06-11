@@ -23,7 +23,6 @@ pipeline {
                             adapters: [coberturaAdapter(
                                 mergeToOneReport: true, 
                                 path: '**/coverage.xml')])
-                        echo failed;
                     }
                 }
             }
