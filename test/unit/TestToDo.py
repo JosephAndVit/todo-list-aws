@@ -136,7 +136,9 @@ class TestDatabaseFunctions(unittest.TestCase):
         from src.todoList import get_items        
         # Table mock
         put_item(self.text, self.dynamodb)
-        self.assertRaises(Exception, get_items(self.dynamodb))
+        result = get_items(self.dynamodb)
+        echo result[0]
+        self.assertRaises(Exception, result[0]['text']))
         print ('End: test_list_todo_error')
 
     def test_update_todo(self):
