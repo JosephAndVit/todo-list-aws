@@ -137,7 +137,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         # Table mock
         put_item(self.text, self.dynamodb)
         result = get_items(self.dynamodb)
-        echo result[0]
+        print (result)
         self.assertRaises(Exception, result[0]['text']))
         print ('End: test_list_todo_error')
 
