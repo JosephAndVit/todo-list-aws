@@ -136,7 +136,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         from src.todoList import get_item       
         # Table mock
         put_item(self.text, self.dynamodb)
-        result = get_items(self.dynamodb)
+        result = get_item(self.dynamodb)
         print (result)
         self.assertRaises(Exception, result)
         print ('End: test_list_todo_error')
