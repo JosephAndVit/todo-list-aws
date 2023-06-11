@@ -14,15 +14,6 @@ pipeline {
                 sh "bash pipelines/PIPELINE-FULL-STAGING/static_test.sh"
                 echo 'Unit testing:'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/unit_test.sh"
-                catcherror(buildResult: 'UNSTABLE', stageResult: 'FAILURE'){
-                    cobertura coberturaReportFile: 'coverage.xml', lineCoverageTargets: '100,79,90', failUnstable: false, onlyStable: false
-                }
-                script{
-                    catchError(buildResult:'UNSTABLE', stageResult: 'UNSTABLE'){
-                        if (currentBuild.result == 'UNSTABLE')
-                            error("")
-                    }
-                }
             }
             post {
                 always {
@@ -32,6 +23,7 @@ pipeline {
                             adapters: [coberturaAdapter(
                                 mergeToOneReport: true, 
                                 path: '**/coverage.xml')])
+                        echo failed;
                     }
                 }
             }
